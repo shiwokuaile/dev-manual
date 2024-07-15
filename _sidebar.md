@@ -1,2 +1,3 @@
 * [Linux](/01.linux/)
-    * [常用命令](/01.linux/common.md)
+  * [环境配置](/01.linux/common.md)
+  * [环境搭建](/01.linux/env.md)

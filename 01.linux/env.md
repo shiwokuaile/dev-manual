@@ -15,13 +15,9 @@ export PATH JAVA_HOME CLASSPATH
 source /etc/profile
 ```
 
-
-
 ## Maven
 
 [下载地址](https://maven.apache.org/download.cgi)  
-
-
 
 **配置**  
 
@@ -38,8 +34,6 @@ export MAVEN_HOME
 # 生效
 source /etc/profile
 ```
-
-
 
 ## Docker
 
@@ -98,4 +92,31 @@ chmod +x /usr/local/bin/docker-compose
 # 验证
 [root@localhost images]# docker-compose --version
 docker-compose version 1.29.2, build 5becea4c
+```
+
+**Dockerfile**  
+
+```dockerfile
+# 构建 xxx.jar 的 docker 镜像
+FROM openjdk:8
+WORKDIR /opt/app
+COPY xxx.jar /opt/app/xxx.jar
+CMD ["java", "-jar", "xxx.jar"]
+```
+
+## Python
+
+Python2 和 Python3 差别挺大，而且 Python3 无法兼容 Python2。  
+
+**下载**
+
+[Window install 版本](https://www.python.org/downloads/windows/)
+
+**pip3**   
+
+```shell
+# pip3 是 python3 用于引入依赖的工具
+pip3 install numpy
+pip3 install matplotlib
+pip3 install opencv-python
 ```

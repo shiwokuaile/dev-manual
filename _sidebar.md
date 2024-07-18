@@ -1,3 +1,5 @@
 * [Linux](/01.linux/)
-  * [环境配置](/01.linux/common.md)
-  * [环境搭建](/01.linux/env.md)
+  * [环境配置](/01.Linux/common.md)
+  * [环境搭建](/01.Linux/env.md)
+* [Git](/02.Git/)
+  * [Git 操作](/02.Git/common.md)

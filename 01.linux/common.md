@@ -1,6 +1,6 @@
 # 环境配置
 
-## 1、配置静态 IP
+## 配置静态 IP
 
 ```shell
 vim /etc/sysconfig/network-scripts/ifcfg-ens33
@@ -23,7 +23,7 @@ NETMASK=255.255.255.0
 GATEWAY=192.168.3.x
 ```
 
-## 2、替换 yum 源为国内源
+## 替换 yum 源为国内源
 
 ```shell
 # 查看 yum 源
@@ -103,7 +103,7 @@ enabled=0
 gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
 ```
 
-## 3、安装常用的命令
+## 安装常用的命令
 
 ```shell
 # ifconfig
@@ -123,4 +123,42 @@ yum install unzip.x86_64
 
 # git
 yum install git
+```
+
+
+
+## 开机启动
+
+```shell
+# 编辑
+vim /etc/rc.d/rc.local 
+
+# 添加启动脚本
+/opt/server/xxx/restart.sh
+
+# 授予执行权限
+chmod +x /etc/rc.d/rc.local 
+```
+
+
+
+# 常用命令
+
+## nohup
+
+远程连接会话关闭后，避免程序自动退出了。
+
+
+
+## firewalld
+
+```shell
+# 重启防火墙
+firewall-cmd --reload
+
+# 列出开放的端口
+firewall-cmd --zone=public --list-ports
+
+# 开放 3306 端口
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
 ```

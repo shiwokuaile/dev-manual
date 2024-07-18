@@ -9,4 +9,4 @@
 - 众多主题
 
 [GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](01.linux/common.md)
+[Get Started](01.Linux/common.md)

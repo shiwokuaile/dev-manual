@@ -125,8 +125,6 @@ yum install unzip.x86_64
 yum install git
 ```
 
-
-
 ## 开机启动
 
 ```shell
@@ -140,15 +138,11 @@ vim /etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local 
 ```
 
-
-
 # 常用命令
 
 ## nohup
 
 远程连接会话关闭后，避免程序自动退出了。
-
-
 
 ## firewalld
 
@@ -161,4 +155,77 @@ firewall-cmd --zone=public --list-ports
 
 # 开放 3306 端口
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
+```
+
+## 资源查看
+
+**CPU**
+
+```shell
+top -h
+```
+
+**内存**
+
+```shell
+free -h
+              total        used        free      shared  buff/cache   available
+Mem:           2.8G        2.6G         88M        2.6M        104M         62M
+Swap:          2.0G        678M        1.3G
+
+# 释放内存
+echo 1 > /proc/sys/vm/drop_caches
+```
+
+**磁盘**
+
+```shell
+# 查看文件系统（磁盘）的使用情况
+df -h
+Filesystem               Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root   27G  6.6G   21G  25% /
+
+
+#  查看当前目录的容量大小，深度不超过一级
+du -sh --max-depth=1 ./
+
+
+# 查看当前目录下所有文件和目录的大小
+du -sh /*
+```
+
+**进程**
+
+```shell
+ps -ef
+
+# 查看 9876 端口
+netstat -anp | grep 9876
+# 最后一列的 8897 是进程号，反过来可以先通过 ps 查看进程号，然后通过进程号筛选，得到端口
+tcp6       0      0 :::9876                 :::*                    LISTEN      8897/java 
+```
+
+**网络**
+
+```shell
+ifconfig
+
+# 使用 ethtool 工具查看网卡 eth1 的带宽
+ethtool eth1
+Settings for eth1:
+        Supported ports: [ FIBRE ]
+        Supported link modes:   10000baseT/Full
+        Supported pause frame use: No
+        Supports auto-negotiation: No
+        Advertised link modes:  10000baseT/Full
+        Advertised pause frame use: No
+        Advertised auto-negotiation: No
+        Speed: 10000Mb/s  ## -- 10000Mb/s
+        Duplex: Full
+        Port: FIBRE
+        PHYAD: 0
+        Transceiver: external        Auto-negotiation: off
+        Supports Wake-on: d
+        Wake-on: d
+        Current message level: 0x00000007 (7)
 ```

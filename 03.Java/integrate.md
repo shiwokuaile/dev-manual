@@ -176,8 +176,6 @@ public void generate(@RequestPart("param") Param param,
 > 
 > 参数名和内容类型：content-type 
 
-
-
 ## OSHI
 
 获取宿主机的硬件信息。
@@ -267,8 +265,10 @@ public class OshiUtil {
 }
 ```
 
-
-
 ## Kaptcha
 
 Google 的验证码框架
+
+## Easy-ES
+
+对 ES 作 CRUD 的类 Mybatis 框架，[简介 | Easy-Es](https://www.easy-es.cn/pages/7ead0d/)

@@ -78,6 +78,26 @@ systemctl disable docker.service
 systemctl disable containerd.service
 ```
 
+**设置国内镜像源**
+
+2024 年 6 月，docker 官方源凉了，指引：[docker凉了，国内镜像站全军覆没！-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2428707)
+
+```shell
+ # 编辑或创建 daemon.json
+vim /etc/docker/daemon.json
+
+ # 以下是可用的 docker 镜像源
+ { 
+  "registry-mirrors" : 
+    [ 
+      "https://docker.m.daocloud.io", 
+      "https://noohub.ru", 
+      "https://huecker.io",
+      "https://dockerhub.timeweb.cloud" 
+    ] 
+}
+```
+
 **docker-compose**  
 
 ```shell
@@ -99,9 +119,18 @@ docker-compose version 1.29.2, build 5becea4c
 ```dockerfile
 # 构建 xxx.jar 的 docker 镜像
 FROM openjdk:8
+# docker 容器内的工作目录
 WORKDIR /opt/app
+# 将本地当前目录的 xxx.jar 拷贝到 docker 容器的 /opt/app 目录
 COPY xxx.jar /opt/app/xxx.jar
 CMD ["java", "-jar", "xxx.jar"]
+```
+
+```shell
+# 在 Dockerfile 当前目录下构建镜像，镜像名为 xxx
+docker build -t xxx .
+# 创建容器并运行，端口 9528，容器名 yyy，镜像 xxx
+docker run -d -p 9528:9528 --name yyy xxx
 ```
 
 ## Python

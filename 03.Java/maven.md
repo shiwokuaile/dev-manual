@@ -1,5 +1,27 @@
 # Maven
 
+## 部署
+
+**1、下载**
+
+[Maven – Download Apache Maven](https://maven.apache.org/download.cgi)
+
+**2、配置**
+
+```shell
+ vim /etc/profile
+
+// 配置环境变量
+MAVEN_HOME=/opt/bin/apache-maven-3.9.6
+PATH=$MAVEN_HOME/bin:$PATH
+export MAVEN_HOME
+
+// 生效
+source /etc/profile
+```
+
+
+
 ## 执行顺序
 
 > maven 的第三方插件的执行顺序与在 pom 文件声明的顺序一致，先声明先执行。
@@ -42,12 +64,8 @@
 > </plugin>
 > ```
 > 
-> 
-> 
 > 问题：错误提示：maven 项目 deploy 报错：Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin。
 > 
 > 分析：没有在工程 pom 文件声明 distributionManagement（jar 上传的路径）
 > 
 > 解决：maven 的配置声明远程仓库，参考：https://blog.51cto.com/u_15072903/4217929
-
-

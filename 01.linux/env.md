@@ -1,5 +1,29 @@
 # 环境搭建
 
+## Linux 镜像
+
+[官方 Download](https://www.centos.org/download/)
+
+[CentOS 7.x Mirror](http://mirror.centos.org/altarch/)
+
+[centos安装包下载_开源镜像站-阿里云](https://mirrors.aliyun.com/centos/?spm=a2c6h.13651104.0.0.6b8e12b2D09VJO)
+
+**镜像分类**
+
+1、DVD ISO：标准安装版，推荐
+
+2、Everything ISO：完整版，集成很多软件（常用命令）
+
+3、Minimal ISO：迷你版，自带软件较少
+
+4、NetInstall：网络安装版，最小，但需要联网下载必要的程序和数据
+
+（从 ISO 的大小也可以知道这四个版本的丰富程度）
+
+![](https://assets.shiwokuaile.top/pic/202408/06729f6003aeeaacfa9a17252061bd091dfc85.png)
+
+
+
 ## JDK
 
 ```shell
@@ -112,25 +136,6 @@ chmod +x /usr/local/bin/docker-compose
 # 验证
 [root@localhost images]# docker-compose --version
 docker-compose version 1.29.2, build 5becea4c
-```
-
-**Dockerfile**  
-
-```dockerfile
-# 构建 xxx.jar 的 docker 镜像
-FROM openjdk:8
-# docker 容器内的工作目录
-WORKDIR /opt/app
-# 将本地当前目录的 xxx.jar 拷贝到 docker 容器的 /opt/app 目录
-COPY xxx.jar /opt/app/xxx.jar
-CMD ["java", "-jar", "xxx.jar"]
-```
-
-```shell
-# 在 Dockerfile 当前目录下构建镜像，镜像名为 xxx
-docker build -t xxx .
-# 创建容器并运行，端口 9528，容器名 yyy，镜像 xxx
-docker run -d -p 9528:9528 --name yyy xxx
 ```
 
 ## Python

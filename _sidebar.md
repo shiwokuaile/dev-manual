@@ -12,4 +12,4 @@
 * [前端](/04.View/)
   * [通用](/04.View/common.md)
   * [移动开发](/04.View/mobile.md)
-  * [微信开发](04.View/wechat.md)
+  * [微信小程序开发](04.View/wechat.md)
